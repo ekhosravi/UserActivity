@@ -21,8 +21,11 @@ function loadDataTable() {
                 "data": "userID",
                 "render": function (data) {
                     return `<div class="text-center">
-                                <a href="/user/Upsert/${data}" class='btn btn-success text-white'
+                               <a href="/user/Upsert/${data}" class='btn btn-success text-white'
                                     style='cursor:pointer;'> <i class='far fa-edit'></i></a>
+                                    &nbsp;
+                                <a onclick=Delete("/user/Delete/${data}") class='btn btn-danger text-white'
+                                    style='cursor:pointer;'> <i class='far fa-trash-alt'></i></a>
                             </div>`;
                 }, "width": "20%"
             }
@@ -44,13 +47,12 @@ function loadDataTable() {
 //                "data": "statusId",
 //                "render": function (data) {
 //                    return `<div class="text-center">
-//                                <a href="/Status/Upsert/${data}" class='btn btn-success text-white'
+//                                <a href="/user/Upsert/${data}" class='btn btn-success text-white'
 //                                    style='cursor:pointer;'> <i class='far fa-edit'></i></a>
 //                                    &nbsp;
-//                                <a onclick=Delete("/Status/Delete/${data}") class='btn btn-danger text-white'
+//                                <a onclick=Delete("/user/Delete/${data}") class='btn btn-danger text-white'
 //                                    style='cursor:pointer;'> <i class='far fa-trash-alt'></i></a>
-//                                </div>
-//                            `;
+//                                </div>`;
 //                }, "width": "30%"
 //            } 
 //        ]

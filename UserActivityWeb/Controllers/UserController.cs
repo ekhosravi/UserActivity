@@ -70,14 +70,18 @@ namespace UserActivityWeb.Controllers
             }
             else
             {
-                // Repopulate StatusList when model validation fails
                 IEnumerable<Status> stList = await _StRepo.GetAllAsync(SD.StatusAPIPath);
-                obj.StatusList = stList.Select(i => new SelectListItem
+
+                UsersVM objVM = new UsersVM()
                 {
-                    Text = i.StatusName,
-                    Value = i.StatusId.ToString()
-                });
-                return View(obj);
+                    StatusList = stList.Select(i => new SelectListItem
+                    {
+                        Text = i.StatusName,
+                        Value = i.StatusId.ToString()
+                    }),
+                    User = obj.User 
+                };
+                return View(objVM);
             }
         }
 
