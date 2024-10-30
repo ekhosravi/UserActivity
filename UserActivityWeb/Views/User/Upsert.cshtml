@@ -1,0 +1,80 @@
+﻿@model UserActivityWeb.Models.ViewModel.UsersVM
+@{
+    var title = "Create User";
+}
+
+<form method="post" asp-action="Upsert" >
+
+    <div class="row px-2 mx-2 backgroundWhite border">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        @if (Model.User.UserID != 0)
+        {
+            <input type="hidden" asp-for="User.UserID" />
+            title = "Edit User";
+        }
+
+        <div class="col-12 p-3">
+            <h2 class="text-primary">@title</h2>
+        </div>
+
+        <div class="col-8">
+            <div class="form-group row">
+                <div class="col-4">
+                    <label asp-for="User.UserName"></label>
+                </div>
+                <div class="col-8">
+                    <input asp-for="User.UserName" class="form-control" />
+                    <span asp-validation-for="User.UserName" class="text-danger"></span>
+                </div>
+            </div>
+            </br>
+
+            <div class="form-group row">
+                <div class="col-4">
+                    <label asp-for="User.Email"></label>
+                </div>
+                <div class="col-8">
+                    <input asp-for="User.Email" class="form-control" />
+                    <span asp-validation-for="User.Email" class="text-danger"></span>
+                </div>
+            </div>
+            </br>
+
+            <div class="form-group row">
+                <div class="col-4">
+                    <label asp-for="User.Role"></label>
+                </div>
+                <div class="col-8">
+                    <select asp-for="User.Role" 
+                            asp-items="Html.GetEnumSelectList<User.Roles>()" 
+                            class="form-control"></select>
+                </div>
+            </div>
+            </br>
+
+            <div class="form-group row">
+                <div class="col-4">
+                    Status
+                </div>
+                <div class="col-8">
+                    @Html.DropDownListFor(m =>  m.User.StatusId, Model.StatusList,
+                         "- Please Select a Status -", new { @class = "form-control" })
+                </div>
+            </div>
+
+            </br>
+            <div class="form-group row">
+                <div class="col-4 offset-4">
+                    <button type="submit" class="btn btn-primary form-control">
+                        @(Model.User.UserID != 0 ? "Update" : "Create")
+                    </button>
+                </div>
+                <div class="col-4">
+                    <a asp-action="Index" class="btn btn-success form-control">Back to List</a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</form>
