@@ -3,3 +3,8 @@ Microsoft.EntityFrameworkCore , Microsoft.EntityFrameworkCore.SqlServer , Micros
 
 add-migration [any Description message that you want]
 update-database
+
+
+Install this NugetPackages in Project WEB: 
+Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation , 
+Newtonsoft.Json
