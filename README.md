@@ -10,9 +10,15 @@ Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation ,
 Newtonsoft.Json
 
 
-For table: datatables.net 
-For ICON: fontawesome.com
-For showing messages in good format: codeseven.github.io/toaster, sweetalert2.github.io 
-For Date Icon formatted: jqueryui.com/datepicker 
+
+
+For table: datatables.net    
+
+For ICON: fontawesome.com    
+
+For showing messages in good format: codeseven.github.io/toaster, sweetalert2.github.io     
+
+For Date Icon formatted: jqueryui.com/datepicker     
+
 Designing web site: bootswatch.com 
 
