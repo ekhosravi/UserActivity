@@ -8,6 +8,7 @@ namespace UserActivityWeb.Models
         public int UserID { get; set; }
         [Required]
         public string UserName { get; set; }
+        [Required]
         public string Email { get; set; }
 
 
@@ -15,9 +16,7 @@ namespace UserActivityWeb.Models
         public Roles Role { get; set; }
 
 
-        [Required]
         public int StatusId { get; set; }
-        [ForeignKey("StatusId")]
         public Status Status { get; set; }
 
 

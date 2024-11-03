@@ -67,6 +67,8 @@ namespace UserActivityAPI.Controllers
             }
 
             var user = _mapper.Map<User>(userDto);
+            user.RegistrationDate = DateTime.UtcNow;
+
             if (!_userService.AddUserAsync(user))
             {
                 ModelState.AddModelError("", $"Somthing went wrong when saving the record {user.UserName}");
