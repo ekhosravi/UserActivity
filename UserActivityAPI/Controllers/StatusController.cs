@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using UserActivityAPI.Models;
 using UserActivityAPI.Services.IServices;
 
@@ -38,6 +39,7 @@ namespace UserActivityAPI.Controllers
         /// <param name="statusid"> The is of status </param>
         /// <returns></returns>
         [HttpGet("{statusid:int}", Name = "GetStatus")]
+        [Authorize]
         public IActionResult GetStatus(int statusid)
         {
             var obj  = _statusService.GetStatusById(statusid);
