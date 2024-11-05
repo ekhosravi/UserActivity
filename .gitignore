@@ -361,3 +361,8 @@ MigrationBackup/
 
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
+/UserActivityWeb/Areas/Identity/Pages/_ViewStart.cshtml
+/UserActivityWeb/Areas/Identity/Pages/_ValidationScriptsPartial.cshtml
+/UserActivityWeb/Properties/serviceDependencies.json
+/UserActivityWeb/Properties/serviceDependencies.local.json
+/UserActivityWeb/Areas/Identity/Data/UserContext.cs
