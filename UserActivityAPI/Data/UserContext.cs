@@ -1,12 +1,12 @@
-﻿using Microsoft.EntityFrameworkCore; 
+﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
 using UserActivityAPI.Models;
-using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 
 namespace UserActivityAPI.Data
 {
     public class UserContext : IdentityDbContext
     {
-        public UserContext(DbContextOptions options) : base(options) { }
+        public UserContext(DbContextOptions<UserContext> options) : base(options) { }
 
         public DbSet<User> Users { get; set; }
         //public DbSet<Role> Roles { get; set; }
@@ -16,7 +16,6 @@ namespace UserActivityAPI.Data
         {
             base.OnModelCreating(modelBuilder);
              
-
             // Seed data for Status table
             modelBuilder.Entity<Status>().HasData(
                 new Status { StatusId = 1, StatusName = "Active" },
@@ -24,6 +23,5 @@ namespace UserActivityAPI.Data
                 new Status { StatusId = 3, StatusName = "Banned" }
             );
         }
-
     }
 }
