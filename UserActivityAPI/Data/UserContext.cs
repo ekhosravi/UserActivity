@@ -1,11 +1,12 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore; 
 using UserActivityAPI.Models;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 
 namespace UserActivityAPI.Data
 {
-    public class UserContext : DbContext
+    public class UserContext : IdentityDbContext
     {
-        public UserContext(DbContextOptions<UserContext> options) : base(options) { }
+        public UserContext(DbContextOptions options) : base(options) { }
 
         public DbSet<User> Users { get; set; }
         //public DbSet<Role> Roles { get; set; }
@@ -14,13 +15,7 @@ namespace UserActivityAPI.Data
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
-
-            //// Seed data for Role table
-            //modelBuilder.Entity<Role>().HasData(
-            //    new Role { RoleId = 1, RoleName = "Admin" },
-            //    new Role { RoleId = 2, RoleName = "User" },
-            //    new Role { RoleId = 3, RoleName = "Moderator" }
-            //);
+             
 
             // Seed data for Status table
             modelBuilder.Entity<Status>().HasData(
